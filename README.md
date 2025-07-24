@@ -7,6 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## SETUP
+To generate a key: `docker compose exec backend2-developer-server-1 php artisan key:generate`
+
+To run migration: `docker compose exec backend2-developer-server-1 php artisan migrate:refresh`
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
