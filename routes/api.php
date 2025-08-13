@@ -35,10 +35,11 @@ Route::prefix('v1')->group(function (){
         Route::resource('emergency', EmergencyContactController::class);
         Route::resource('managers', ManagerController::class);
         Route::resource('heirs', HeirController::class)->only(['store', 'index', 'update']);
-        Route::resource('/news', NewsController::class);
         Route::resource('songs', SongController::class);
 
     });
+    
+    Route::resource('/news', NewsController::class);
 
     // admin route
     Route::middleware(['auth:sanctum', 'role:admin'])->group(function(){
