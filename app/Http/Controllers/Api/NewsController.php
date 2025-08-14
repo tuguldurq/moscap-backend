@@ -95,6 +95,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        return $news->delete();
+        $news->delete();
+        return response()->json(['message' => 'News deleted successfully']);
     }
 }
