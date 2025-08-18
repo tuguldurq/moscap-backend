@@ -37,9 +37,18 @@ class UploadController extends Controller
      */
     public function store(Request $request)
     {
-        $extension = $request->file->extension();
-        $path = Storage::disk('public')->put('uploads', $request->file);
-        return $path;
+        $request->validate([
+            'file' => 'required|file|mimes:jpg,jpeg,png,gif|max:2048',
+        ]);
+    
+        $file = $request->file('file');
+    
+        // Save directly in /public/uploads (no storage:link needed)
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('uploads'), $filename);
+        
+        return 'uploads/' . $filename;
+
     }
 
     /**
